@@ -16,7 +16,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//create a cavas variable and context variable
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
-	
+
+document.getElementById("demo").innerHTML = 5 + 6;
+
 	//function that takes parameters of x and y position, width and height, and fill colour
 	//use this function to create variables, with their information
 	function Shape(x, y, w, h, fill) {
