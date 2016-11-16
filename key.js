@@ -248,7 +248,7 @@ for (var i = 0; i < bogsLength; i++) {
 	else{
 		
                clearTimeout(timer);
-		
+		alert("Game Over!\nRefresh to Play Again");
 		userSquare.w=0;
 		userSquare.h=0;
 		userSquare.x=-500;
@@ -280,7 +280,7 @@ for (var i = 0; i < bogsLength; i++) {
 	context.stroke();
         
 }	
-		alert("Game Over!\nRefresh to Play Again");
+		
 }
 
 }	
