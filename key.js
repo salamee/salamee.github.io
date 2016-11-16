@@ -59,7 +59,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	//function, that takes care of the moving, no parameters, for it is an event
 	function move(e){
-
+		document.getElementById("demo") = (5 + 6);
 
 		/*if the button pessed has the key code of 37 (which is the left arrow key) 
 		and the userSquare is not past the canvas left sideline 
@@ -197,7 +197,7 @@ var arrayLength = myMos.length;
 			context.fill();
 			context.stroke();
 		}	
-		//document.getElementById("demo") = (5 + 6);
+		
 		
 	}
 }
