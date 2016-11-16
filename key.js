@@ -55,7 +55,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.fill();
 	//call on time function to start
 	time();
-	
+	context.font="20px Georgia";
+context.fillText("Hello World!",10,50);
 
 	//function, that takes care of the moving, no parameters, for it is an event
 	function move(e){
