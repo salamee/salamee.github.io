@@ -303,14 +303,14 @@ while(bob<20){
 bob++;
 }
 
-
+/*
 for (var j=0; j<20; j++) {
        
 	context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
     context.fillStyle = "#FF0000";
 	context.fill();
 	context.stroke();	
-}
+}*/
 
 var jojo = 0;
 var size = 55;
@@ -322,12 +322,12 @@ size = (jojo*5)+ size;
 jojo++;
 }
 
-
+/*
 for (var j=0; j<5; j++) {
        
 	context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
 	context.stroke();	
-}
+}*/
 
 function isCollide(a, b) {
      if(
