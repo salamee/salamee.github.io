@@ -153,55 +153,51 @@ var arrayLength = myMos.length;
 		if( myMos[i].h===0){
 			mucur = true;
 		}
-	else{
-	mucur=false;
-	break;
-}
-
-	
-}	
+		else{
+			mucur=false;
+			break;
+		}	
+	}	
 	var bogsLength = myBogs.length;
 	for (var i = 0; i < bogsLength; i++) {
 
-	if (myBogs[i].h===0){
-	bucur=true;
+		if (myBogs[i].h===0){
+			bucur=true;
+		}
+		else{
+			bucur=false;
+			break;
+		}
 	}
-	else{
-	bucur=false;
-	break;
-}
-}
 
 	if((bucur===true) && (mucur===true)){
-		alert("You Won!!\nYour Points is "+(150-timeo));
 		clearTimeout(timer);
 		myMos = [];
 		myBogs = [];
 
 		//redraw canvas
-	canvas.width=canvas.width;
+		canvas.width=canvas.width;
 	
-	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-	context.fillStyle = useSquare.fill;
-	context.fill();
-	context.stroke();
+		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+		context.fillStyle = useSquare.fill;
+		context.fill();
+		context.stroke();
 
-	for (var j=0; j<20; j++) {
+		for (var j=0; j<20; j++) {
        
-	context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-        context.fillStyle = useSquare.fill;
-	context.fill();
-	context.stroke();
-        
-}
-	for (var j=0; j<5; j++) {
-       
-	context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-        context.fillStyle = useSquare.fill;
-	context.fill();
-	context.stroke();
-        
-}		
+			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
+        		context.fillStyle = useSquare.fill;
+			context.fill();
+			context.stroke();
+		}
+		for (var j=0; j<5; j++) {
+			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
+        		context.fillStyle = useSquare.fill;
+			context.fill();
+			context.stroke();
+		}	
+		document.getElementById("demo") = (5 + 6);
+		alert("You Won!!\nYour Points is "+(150-timeo));
 	}
 }
 
