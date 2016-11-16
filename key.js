@@ -17,16 +17,16 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
 
-document.getElementById("demo").innerHTML = 5 + 6;
+document.getElementById("demo") = (5 + 6);
 
 	//function that takes parameters of x and y position, width and height, and fill colour
 	//use this function to create variables, with their information
 	function Shape(x, y, w, h, fill) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.fill = fill;
+    		this.x = x;
+    		this.y = y;
+    		this.w = w;
+  		this.h = h;
+	 	this.fill = fill;
 	}
 	
 	//x and y positon of player's square, start at zero and zero position
