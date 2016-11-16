@@ -171,6 +171,7 @@ var arrayLength = myMos.length;
 	}
 
 	if((bucur===true) && (mucur===true)){
+		alert("You Won!!\nYour Points is "+(150-timeo));
 		clearTimeout(timer);
 		myMos = [];
 		myBogs = [];
@@ -197,7 +198,7 @@ var arrayLength = myMos.length;
 			context.stroke();
 		}	
 		//document.getElementById("demo") = (5 + 6);
-		alert("You Won!!\nYour Points is "+(150-timeo));
+		
 	}
 }
 
