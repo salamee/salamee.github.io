@@ -196,7 +196,7 @@ var arrayLength = myMos.length;
 			context.fill();
 			context.stroke();
 		}	
-		document.getElementById("demo") = (5 + 6);
+		//document.getElementById("demo") = (5 + 6);
 		alert("You Won!!\nYour Points is "+(150-timeo));
 	}
 }
