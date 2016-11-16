@@ -53,14 +53,18 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.stroke();
 	//fill fills in colour
 	context.fill();
-	//call on time function to start
-	time();
+	
 	context.font="20px Georgia";
 context.fillText("Hello World!",10,50);
 
 	//function, that takes care of the moving, no parameters, for it is an event
 	function move(e){
 		document.getElementById('demo').innerHTML = (5 + 6);
+		
+		if(timeo==0){
+			//call on time function to start
+			time();
+		}
 
 		/*if the button pessed has the key code of 37 (which is the left arrow key) 
 		and the userSquare is not past the canvas left sideline 
