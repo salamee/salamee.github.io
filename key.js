@@ -20,12 +20,11 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	//function that takes parameters of x and y position, width and height, and fill colour
 	//use this function to create variables, with their information
-	function Shape(x, y, w, h, fill) {
+	function Shape(x, y, w, h) {
     		this.x = x;
     		this.y = y;
     		this.w = w;
   		this.h = h;
-	 	this.fill = fill;
 	}
 	
 	//x and y positon of player's square, start at zero and zero position
@@ -42,11 +41,11 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	// create a rectangle variables holder, (using function shape)
 	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
 	//that is the users square
-	userSquare = new Shape (xPos, yPos, width, height, "#FF0000");
+	userSquare = new Shape (xPos, yPos, width, height);
 	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
 	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 	//make the fill colour the fill colur of userSquare's
-	context.fillStyle = userSquare.fill;
+	context.fillStyle = "red";
 	//use context.fill and context.stroke, to draw the rectangle
 	//stroke draws outline
 	context.stroke();
@@ -125,7 +124,7 @@ context.fillText("PRESS ANY KEY TO START",500,200)
 		//make the new canvas's width the same as the original canvas's width
 		canvas.width=canvas.width;
 		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-		context.fillStyle = userSquare.fill;
+		context.fillStyle = "red";
 		context.fill();
 		context.stroke();
 		
@@ -191,20 +190,20 @@ var arrayLength = myMos.length;
 		canvas.width=canvas.width;
 	
 		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-		context.fillStyle = useSquare.fill;
+		context.fillStyle = "red";
 		context.fill();
 		context.stroke();
 
 		for (var j=0; j<20; j++) {
        
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-        		context.fillStyle = useSquare.fill;
+        		context.fillStyle = "green";
 			context.fill();
 			context.stroke();
 		}
 		for (var j=0; j<5; j++) {
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-        		context.fillStyle = useSquare.fill;
+        		context.fillStyle = "green";
 			context.fill();
 			context.stroke();
 		}	
@@ -271,14 +270,14 @@ for (var i = 0; i < bogsLength; i++) {
 	canvas.width=canvas.width;
 	
 	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-	context.fillStyle = userSquare.fill;
+	context.fillStyle = "red";
 	context.fill();
 	context.stroke();
 
 	for (var j=0; j<20; j++) {
        
 	context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-    context.fillStyle = userSquare.fill;
+    context.fillStyle = "green";
 	context.fill();
 	context.stroke();
         
@@ -286,7 +285,7 @@ for (var i = 0; i < bogsLength; i++) {
 	for (var j=0; j<5; j++) {
        
 	context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-    context.fillStyle = userSquare.fill;
+    context.fillStyle = "green";
 	context.fill();
 	context.stroke();
         
@@ -304,7 +303,7 @@ var myBogs = [];
 var bob=0;
 while(bob<20){
 
-	myMos.push(new Shape ((Math.floor(Math.random()*1138+50)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10)), ""));
+	myMos.push(new Shape ((Math.floor(Math.random()*1138+50)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
 	
 bob++;
 }
@@ -323,7 +322,7 @@ var size = 55;
 
 while(jojo<5){
 size = (jojo*5)+ size;
-	myBogs.push(new Shape ((Math.floor(Math.random()*1044+50)), (Math.floor(Math.random()*92+50)), size, size, ""));
+	myBogs.push(new Shape ((Math.floor(Math.random()*1044+50)), (Math.floor(Math.random()*92+50)), size, size));
 	
 jojo++;
 }
