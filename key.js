@@ -55,14 +55,14 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.fill();
 	
 	context.font="12px Georgia";
-context.fillText("A program that takes the action of arrow keys being inputted from user and moves their box/player around. This box is",100,50); 
-context.fillText("moved to eat the smaller boxes that are generated randomly.The player can only eat these small boxes, and eating them will make he",100,70); 
-context.fillText("players box marginally bigger. There are bigger boxes than the player and the smaller boxes, that the player cannot eat it, or else ",100,90);
-context.fillText("it'll be game over. Initially these bigger boxes are clear with black outline, just before the user plays, to make them identifiable. ",100,110);
-context.fillText("The user can eat these bigger boxes once they get bigger than the big boxes, from eating enough smaller boxes. When user eats all the ",100,130);
-context.fillText("boxes on screen, the user wins. The ponts are clculated by subtracting the time take to play, and subtacting that from 150. 150 being ",100,150);
-context.fillText("the max points, which would be impossible, since it is not possible to finish the game under 0 s.",100,110);
-context.fillText("PRESS ANY KEY TO START",100,170)
+context.fillText("A program that takes the action of arrow keys being inputted from user and moves their box/player around. This box is",200,50); 
+context.fillText("moved to eat the smaller boxes that are generated randomly.The player can only eat these small boxes, and eating them will make he",200,70); 
+context.fillText("players box marginally bigger. There are bigger boxes than the player and the smaller boxes, that the player cannot eat it, or else ",200,90);
+context.fillText("it'll be game over. Initially these bigger boxes are clear with black outline, just before the user plays, to make them identifiable. ",200,110);
+context.fillText("The user can eat these bigger boxes once they get bigger than the big boxes, from eating enough smaller boxes. When user eats all the ",200,130);
+context.fillText("boxes on screen, the user wins. The ponts are clculated by subtracting the time take to play, and subtacting that from 150. 150 being ",200,150);
+context.fillText("the max points, which would be impossible, since it is not possible to finish the game under 0 s.",200,170);
+context.fillText("PRESS ANY KEY TO START",200,200)
 
 	//function, that takes care of the moving, no parameters, for it is an event
 	function move(e){
