@@ -65,7 +65,7 @@ context.fillText("PRESS ANY KEY TO START",500,200)
 
 	//function, that takes care of the moving, no parameters, for it is an event
 	function move(e){
-		document.getElementById('demo').innerHTML = (5 + 6);
+		document.getElementById('demo').innerHTML = "Timer";
 		
 		if(timeo==0){
 			//call on time function to start
@@ -133,7 +133,7 @@ context.fillText("PRESS ANY KEY TO START",500,200)
 		for (var j=0; j<20; j++) {
        
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-			context.fillStyle = userSquare.fill;
+			context.fillStyle = "green";
 			context.fill();
 			context.stroke();
 		}
@@ -141,7 +141,7 @@ context.fillText("PRESS ANY KEY TO START",500,200)
 		for (var j=0; j<5; j++) {
        
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-			context.fillStyle = myBogs.fill;
+			context.fillStyle = "green";
 			context.fill();
 			context.stroke();
 		}		
