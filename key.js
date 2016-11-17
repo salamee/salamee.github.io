@@ -123,8 +123,9 @@ context.fillText("PRESS ANY KEY TO START",500,200)
 		//redraw canvas anew
 		//make the new canvas's width the same as the original canvas's width
 		canvas.width=canvas.width;
-		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 		context.fillStyle = "red";
+		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+		
 		context.fill();
 		context.stroke();
 		
@@ -188,9 +189,9 @@ var arrayLength = myMos.length;
 
 		//redraw canvas
 		canvas.width=canvas.width;
-	
-		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 		context.fillStyle = "red";
+		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+		
 		context.fill();
 		context.stroke();
 
@@ -268,9 +269,9 @@ for (var i = 0; i < bogsLength; i++) {
 		
 		//redraw canvas
 	canvas.width=canvas.width;
-	
-	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 	context.fillStyle = "red";
+	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+	
 	context.fill();
 	context.stroke();
 
