@@ -298,7 +298,7 @@ var myBogs = [];
 var bob=0;
 while(bob<20){
 
-	myMos.push(new Shape ((Math.floor(Math.random()*1138+50)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*12+10)), (Math.floor(Math.random()*12+10)), ""));
+	myMos.push(new Shape ((Math.floor(Math.random()*1138+50)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10)), ""));
 	
 bob++;
 }
