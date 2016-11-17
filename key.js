@@ -55,7 +55,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.fill();
 	
 	context.font="20px Georgia";
-context.fillText("Hello World!",10,50);
+context.fillText("A program that takes the action of arrow keys being inputted from user and moves their box/player around. This box is moved to eat the smaller boxes that are generated randomly.The player can only eat these small boxes, and eating them will make he players box marginally bigger. There are bigger boxes than the player and the smaller boxes, that the player cannot eat it, or else it'll be game over. Initially these bigger boxes are clear with black outline, just before the user plays, to make them identifiable. The user can eat these bigger boxes once they get bigger than the big boxes, from eating enough smaller boxes. When user eats all the boxes on screen, the user wins. The ponts are clculated by subtracting the time take to play, and subtacting that from 150. 150 being the max points, which would be impossible, since it is not possible to finish the game under 0 s.",10,50);
 
 	//function, that takes care of the moving, no parameters, for it is an event
 	function move(e){
