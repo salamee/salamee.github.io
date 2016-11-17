@@ -56,11 +56,11 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.font="18px Georgia";
 	context.fillStyle = "blue";
 context.fillText("Use your arrow keys to move your box, the one on the left corner. Move this box to eat the smaller boxes.",225,50); 
-context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",273,70); 
-context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",275,90);
+context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",275,70); 
+context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",272,90);
 context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
 context.fillText("Eat all the boxes as fast as you can to win.",450,130);
-context.fillText("Remember!! The more time you take, the less points you have.",400,150);
+context.fillText("Remember!! The more time you take, the less points you have.",380,150);
 context.fillText("PRESS ANY KEY TO START",500,200)
 
 	//function, that takes care of the moving, no parameters, for it is an event
