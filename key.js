@@ -69,7 +69,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//function, that takes care of the moving, no parameters, for it is an event
 	function move(e){
 		//get text text id from html file, set text to timer
-		document.getElementById('demo').innerHTML = "Timer";
+		document.getElementById('lblTime').innerHTML = "Timer";
 		
 		if(timeo==0){
 			//call on time function to start
@@ -357,7 +357,7 @@ return true;}
 function time(){
 timeo++;
 timer = setTimeout(time,1000);
-document.getElementById('test').innerHTML = timeo;
+document.getElementById('timer').innerHTML = timeo;
 
 }
 
