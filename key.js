@@ -191,6 +191,10 @@ var arrayLength = myMos.length;
 		clearTimeout(timer);
 		myMos = [];
 		myBogs = [];
+		userSquare.w=0;
+		userSquare.h=0;
+		userSquare.x=-500;
+		userSquare.y=-500;
 
 		//redraw canvas
 		canvas.width=canvas.width;
