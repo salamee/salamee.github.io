@@ -196,12 +196,37 @@ var arrayLength = myMos.length;
 		userSquare.x=-500;
 		userSquare.y=-500;
 
+		userSquare.w=0;
+		userSquare.h=0;
+		userSquare.x=-500;
+		userSquare.y=-500;
+		myMos = [];
+		myBogs = [];
+		
 		//redraw canvas
-		canvas.width=canvas.width;
-		
-		
-		context.fill();
-		context.stroke();	
+	canvas.width=canvas.width;
+	context.fillStyle = "red";
+	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+	
+	context.fill();
+	context.stroke();
+
+	for (var j=0; j<20; j++) {
+       
+	context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
+    context.fillStyle = "green";
+	context.fill();
+	context.stroke();
+        
+}
+	for (var j=0; j<5; j++) {
+       
+	context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
+    context.fillStyle = "green";
+	context.fill();
+	context.stroke();
+        
+}	
 		
 		
 	}
