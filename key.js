@@ -11,47 +11,16 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 150 being the max points, which would be impossible, since it is not possible to finish the game under 0 s.
 */
 
+
+	//GETTING THINGS STARTED TO GET SET
+
+
+
 	//call on canvas and its context, created in the html file
 	//create a cavas variable and context variable
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
 
-
-
-	//function that takes parameters of x and y position, width and height, and fill colour
-	//use this function to create variables, with their information
-	function Shape(x, y, w, h) {
-    		this.x = x;
-    		this.y = y;
-    		this.w = w;
-  		this.h = h;
-	}
-	
-	//x and y positon of player's square, start at zero and zero position
-	var xPos = 0;
-	var yPos = 0;
-	//the width and height of the players square
-	var width = 15;
-	var height = 15;
-	//variable of player's square
-	var userSquare;
-	//start time variable at zero
-	var timeo=0;
-
-	// create a rectangle variables holder, (using function shape)
-	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
-	//that is the users square
-	userSquare = new Shape (xPos, yPos, width, height);
-	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
-	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-	//make the fill colour the fill colur of userSquare's
-	context.fillStyle = "red";
-	//use context.fill and context.stroke, to draw the rectangle
-	//stroke draws outline
-	context.stroke();
-	//fill fills in colour
-	context.fill();
-	
 	//set font to 18pt georgia
 	context.font="18px Georgia";
 	//set font color to blue
@@ -66,8 +35,84 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.fillText("Remember!! The more time you take, the less points you have.",380,150);
 	context.fillText("PRESS ANY KEY TO START",500,200)
 
+	//start time variable at zero
+	var timeo=0;
+
+
+
+
+	//CREATING THE OBJECTS
+
+
+
+	//CREATING SQUARES FUNCTION
+
+	//function that takes parameters of x and y position, width and height, and fill colour
+	//use this function to create variables, with their information
+	function Shape(x, y, w, h) {
+    		this.x = x;
+    		this.y = y;
+    		this.w = w;
+  		this.h = h;
+	}
+
+	//CREATING THE ENEMY SQUARES
+
+	var myMos = [];
+	var myBogs = [];
+	var bob=0;
+	while(bob<20){
+
+		myMos.push(new Shape ((Math.floor(Math.random()*1138+50)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
+		bob++;
+	}
+
+	var jojo = 0;
+	var size = 55;
+
+	while(jojo<5){
+		size = (jojo*5)+ size;
+		myBogs.push(new Shape ((Math.floor(Math.random()*1044+50)), (Math.floor(Math.random()*92+50)), size, size));
+		jojo++;
+	}
+
+	//CREATING THE PLAYERS SQUARE
+
+	//x and y positon of player's square, start at zero and zero position
+	var xPos = 0;
+	var yPos = 0;
+	//the width and height of the players square
+	var width = 15;
+	var height = 15;
+	//variable of player's square
+	var userSquare;
+	
+	// create a rectangle variables holder, (using function shape)
+	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
+	//that is the users square
+	userSquare = new Shape (xPos, yPos, width, height);
+	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
+	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+	//make the fill colour the fill colur of userSquare's
+	context.fillStyle = "red";
+	//use context.fill and context.stroke, to draw the rectangle
+	//stroke draws outline
+	context.stroke();
+	//fill fills in colour
+	context.fill();
+
+
+
+
+	//INTERACTING WITH USER
+
+
+
+	document.onkeydown = keyPressed;
+
 	//function, that takes care of the moving, no parameters, for it is an event
-	function move(e){
+	function keyPressed(e){
+		
 		//get text text id from html file, set text to timer
 		document.getElementById('lblTime').innerHTML = "Timer";
 		
@@ -155,60 +200,60 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	}
 
 
-document.onkeydown = move;
+	//PLAYER WINS
 
 
-function win(){
+	function win(){
 	
-var mucur = false;
-var bucur = false;
+		var mucur = false;
+		var bucur = false;
 
-var arrayLength = myMos.length;
+		var arrayLength = myMos.length;
 
-	for (var i = 0; i < arrayLength; i++) {
-		if( myMos[i].h===0){
-			mucur = true;
-		}
-		else{
-			mucur=false;
-			break;
+		for (var i = 0; i < arrayLength; i++) {
+			if( myMos[i].h===0){
+				mucur = true;
+			}
+			else{
+				mucur=false;
+				break;
+			}	
 		}	
-	}	
-	var bogsLength = myBogs.length;
-	for (var i = 0; i < bogsLength; i++) {
+		var bogsLength = myBogs.length;
+		for (var i = 0; i < bogsLength; i++) {
 
-		if (myBogs[i].h===0){
-			bucur=true;
+			if (myBogs[i].h===0){
+				bucur=true;
+			}
+			else{
+				bucur=false;
+				break;
+			}
 		}
-		else{
-			bucur=false;
-			break;
-		}
-	}
 
-	if((bucur===true) && (mucur===true)){
-		alert("You Won!!\nYour Points is "+(150-timeo));
-		clearTimeout(timer);
-		myMos = [];
-		myBogs = [];
-		userSquare.w=0;
-		userSquare.h=0;
-		userSquare.x=-500;
-		userSquare.y=-500;
+		if((bucur===true) && (mucur===true)){
+			alert("You Won!!\nYour Points is "+(150-timeo));
+			clearTimeout(timer);
+			myMos = [];
+			myBogs = [];
+			userSquare.w=0;
+			userSquare.h=0;
+			userSquare.x=-500;
+			userSquare.y=-500;
 
-		userSquare.w=0;
-		userSquare.h=0;
-		userSquare.x=-500;
-		userSquare.y=-500;
-		myMos = [];
-		myBogs = [];
+			userSquare.w=0;
+			userSquare.h=0;
+			userSquare.x=-500;
+			userSquare.y=-500;
+			myMos = [];
+			myBogs = [];
 		
-		//redraw canvas
-	canvas.width=canvas.width;
-	context.fillStyle = "red";
-	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+			//redraw canvas
+			canvas.width=canvas.width;
+			context.fillStyle = "red";
+			context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 	
-	context.fill();
+			context.fill();
 	context.stroke();
 
 	for (var j=0; j<20; j++) {
@@ -318,41 +363,7 @@ for (var i = 0; i < bogsLength; i++) {
 }
 
 
-var myMos = [];
-var myBogs = [];
-var bob=0;
-while(bob<20){
 
-	myMos.push(new Shape ((Math.floor(Math.random()*1138+50)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
-	
-bob++;
-}
-
-/*
-for (var j=0; j<20; j++) {
-       
-	context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-    context.fillStyle = "#FF0000";
-	context.fill();
-	context.stroke();	
-}*/
-
-var jojo = 0;
-var size = 55;
-
-while(jojo<5){
-size = (jojo*5)+ size;
-	myBogs.push(new Shape ((Math.floor(Math.random()*1044+50)), (Math.floor(Math.random()*92+50)), size, size));
-	
-jojo++;
-}
-
-/*
-for (var j=0; j<5; j++) {
-       
-	context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-	context.stroke();	
-}*/
 
 function isCollide(a, b) {
      if(
