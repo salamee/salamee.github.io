@@ -40,18 +40,16 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	//function that redraw the canvas with new positons for boxes 
 	function redrawCanvas(){
+		
 		//redraw canvas anew
 		//make the new canvas's width the same as the original canvas's width
 		canvas.width=canvas.width;
 		context.fillStyle = "purple";
 		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-		
 		context.fill();
 		context.stroke();
-		
 
 		for (var j=0; j<20; j++) {
-       
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
 			context.fillStyle = "purple";
 			context.fill();
@@ -59,7 +57,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}
 	
 		for (var j=0; j<5; j++) {
-       
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
 			context.fillStyle = "purple";
 			context.fill();
@@ -198,10 +195,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			collision();
 			collisionBogs();
 		}
-	
+		
 		redrawCanvas();	
-	
-
 	}
 
 
@@ -253,145 +248,80 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			myMos = [];
 			myBogs = [];
 		
-			//redraw canvas
-			canvas.width=canvas.width;
-			context.fillStyle = "red";
-			context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-	
-			context.fill();
-	context.stroke();
-
-	for (var j=0; j<20; j++) {
-       
-	context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-    context.fillStyle = "green";
-	context.fill();
-	context.stroke();
-        
-}
-	for (var j=0; j<5; j++) {
-       
-	context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-    context.fillStyle = "green";
-	context.fill();
-	context.stroke();
-        
-}	
-		
-		
+			redrawCanvas();	
+		}
 	}
-}
 
-// function to check if players square touches the smaller squares, 
-//and if so, will get bigger, and make smaller square that is touched disappear from screen
-function collision(e){
-var arrayLength = myMos.length;
+	// function to check if players square touches the smaller squares, 
+	//and if so, will get bigger, and make smaller square that is touched disappear from screen
+	function collision(e){
+		var arrayLength = myMos.length;
+		for (var i = 0; i < arrayLength; i++) {
 
-for (var i = 0; i < arrayLength; i++) {
+			if(isCollide( myMos[i], userSquare)){
+				userSquare.w+=5;
+				userSquare.h+=5;
+				myMos[i].x=-50;
+				myMos[i].y=-50;
+				myMos[i].w=0;
+				myMos[i].h=0;
+				win();
+			}
+		}	
+	}
 
+	// function to check if players square touches the bigger squares, 
+	//and if so, 
+	//checks if player is bigger or smaller than the box touched
+	//if player is bigger than other box then player will get bigger, and make smaller square that is touched disappear from screen
+	function collisionBogs(e){
+		var bogsLength = myBogs.length;
 
-	if(isCollide( myMos[i], userSquare)){
-		userSquare.w+=5;
-		userSquare.h+=5;
-		myMos[i].x=-50;
-		myMos[i].y=-50;
-		myMos[i].w=0;
-		myMos[i].h=0;
-		win();
-}
+		for (var i = 0; i < bogsLength; i++) {
 
-	
-}	
-
-	//if all things are -50 x and -50 y -  	u won, points is 100-time
-}
-
-// function to check if players square touches the bigger squares, 
-//and if so, 
-//checks if player is bigger or smaller than the box touched
-//if player is bigger than other box then player will get bigger, and make smaller square that is touched disappear from screen
-function collisionBogs(e){
-var bogsLength = myBogs.length;
-
-for (var i = 0; i < bogsLength; i++) {
-
-	if (isCollide( myBogs[i], userSquare)){
-	if((userSquare.w >= myBogs[i].w) && (userSquare.h >= myBogs[i].h)){
-		userSquare.w+=10;
-		userSquare.h+=10;
-		myBogs[i].x=-50;
-		myBogs[i].y=-50;
-		myBogs[i].w=0;
-		myBogs[i].h=0;
-		win();
-}
-	else{
+			if (isCollide( myBogs[i], userSquare)){
+				if((userSquare.w >= myBogs[i].w) && (userSquare.h >= myBogs[i].h)){
+					userSquare.w+=10;
+					userSquare.h+=10;
+					myBogs[i].x=-50;
+					myBogs[i].y=-50;
+					myBogs[i].w=0;
+					myBogs[i].h=0;
+					win();
+				}
+				else{
 		
-               clearTimeout(timer);
-		alert("Game Over!\nRefresh to Play Again");
-		userSquare.w=0;
-		userSquare.h=0;
-		userSquare.x=-500;
-		userSquare.y=-500;
-		myMos = [];
-		myBogs = [];
+               				clearTimeout(timer);
+					alert("Game Over!\nRefresh to Play Again");
+					userSquare.w=0;
+					userSquare.h=0;
+					userSquare.x=-500;
+					userSquare.y=-500;
+					myMos = [];
+					myBogs = [];
 		
-		//redraw canvas
-	canvas.width=canvas.width;
-	context.fillStyle = "red";
-	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-	
-	context.fill();
-	context.stroke();
-
-	for (var j=0; j<20; j++) {
-       
-	context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-    context.fillStyle = "green";
-	context.fill();
-	context.stroke();
-        
-}
-	for (var j=0; j<5; j++) {
-       
-	context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-    context.fillStyle = "green";
-	context.fill();
-	context.stroke();
-        
-}	
-		
-}
-
-}	
-}		
-}
+					redrawCanvas();			
+				}
+			}	
+		}		
+	}
 
 
 
 
-function isCollide(a, b) {
-     if(
-        ((b.y + b.h) <= (a.y)) ||
-        (b.y >= (a.y + a.h)) ||
-       ((b.x + b.w) <= a.x) ||
-       (b.x >= (a.x + a.w))
-    ){
-return false;}
+	function isCollide(a, b) {
+     		if(  ( (b.y + b.h) <= (a.y) )   ||   ( b.y >= (a.y + a.h) )  ||	( (b.x + b.w) <= a.x ) ||  ( b.x >= (a.x + a.w) )   ){
+			return false;
+		}
+		else{
 
-else{
+			return true;
+		}
+	}
 
-return true;}
-}
-
-function time(){
-timeo++;
-timer = setTimeout(time,1000);
-document.getElementById('timer').innerHTML = timeo;
-
-}
-
-
-
-
+	function time(){
+		timeo++;
+		timer = setTimeout(time,1000);
+		document.getElementById('timer').innerHTML = timeo;
+	}
 
