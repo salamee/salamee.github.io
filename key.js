@@ -12,13 +12,17 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 */
 
 
+
 	//GETTING THINGS STARTED TO GET SET
+
 
 
 	//call on canvas and its context, created in the html file
 	//create a cavas variable and context variable
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
+
+	//OUTPUT INSTRUCTIONS
 
 	//set font to 18pt georgia
 	context.font="18px Georgia";
@@ -34,9 +38,18 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.fillText("Remember!! The more time you take, the less points you have.",380,150);
 	context.fillText("PRESS ANY KEY TO START",500,200)
 
+	//TIMER
+
 	//start time variable at zero
 	var timeo=0;
 
+	function time(){
+		timeo++;
+		timer = setTimeout(time,1000);
+		document.getElementById('timer').innerHTML = timeo;
+	}
+
+	//REDRAW CANVAS
 
 	//function that redraw the canvas with new positons for boxes 
 	function redrawCanvas(){
@@ -71,6 +84,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 
 
+
 	//CREATING SQUARES FUNCTION
 
 	//function that takes parameters of x and y position, width and height, and fill colour
@@ -86,6 +100,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	var myMos = [];
 	var myBogs = [];
+
 	var bob=0;
 	while(bob<20){
 
@@ -131,6 +146,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 
 	//INTERACTING WITH USER
+
 
 
 
@@ -200,7 +216,10 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	}
 
 
+
+
 	//PLAYER WINS
+
 
 
 	function win(){
@@ -252,6 +271,15 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}
 	}
 
+
+
+
+	//FUNCTIONS FOR WHEN SQUARES HIT EACHOTHER
+
+
+
+	//PLAYER HITS SMALL SQUARES
+
 	// function to check if players square touches the smaller squares, 
 	//and if so, will get bigger, and make smaller square that is touched disappear from screen
 	function collision(e){
@@ -269,6 +297,10 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			}
 		}	
 	}
+
+
+
+	//PLAYER HITS BIG SQUARE
 
 	// function to check if players square touches the bigger squares, 
 	//and if so, 
@@ -306,8 +338,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}		
 	}
 
-
-
+	//CHECK IF ONE THING TOUCHES THE OTHER
 
 	function isCollide(a, b) {
      		if(  ( (b.y + b.h) <= (a.y) )   ||   ( b.y >= (a.y + a.h) )  ||	( (b.x + b.w) <= a.x ) ||  ( b.x >= (a.x + a.w) )   ){
@@ -319,9 +350,4 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}
 	}
 
-	function time(){
-		timeo++;
-		timer = setTimeout(time,1000);
-		document.getElementById('timer').innerHTML = timeo;
-	}
-
+	
