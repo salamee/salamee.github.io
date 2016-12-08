@@ -104,7 +104,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	var bob=0;
 	while(bob<20){
 
-		myMos.push(new Shape ((Math.floor(Math.random()*1258+30)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
+		myMos.push(new Shape ((Math.floor(Math.random()*1258+30)), (Math.floor(Math.random()*273+15)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
 		bob++;
 	}
 
@@ -113,7 +113,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	while(jojo<5){
 		size = (jojo*5)+ size;
-		myBogs.push(new Shape ((Math.floor(Math.random()*1144+50)), (Math.floor(Math.random()*92+50)), size, size));
+		myBogs.push(new Shape ((Math.floor(Math.random()*1154+40)), (Math.floor(Math.random()*162+30)), size, size));
 		jojo++;
 	}
 
@@ -180,7 +180,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		is not past the canvas's bottom sideline (250 down from the top)
 		(useSquare's y postion is less than 250)
 		down is positive, as you go down higher number*/
-		if( ((userSquare.y+userSquare.h)<250) && (e.keyCode==40) ){
+		if( ((userSquare.y+userSquare.h)<300) && (e.keyCode==40) ){
 			//then add 5 pixels to the user squares y positon, as in move its position down
 			userSquare.y+=5;
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
