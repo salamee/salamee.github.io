@@ -60,22 +60,24 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		//redraw canvas anew
 		//make the new canvas's width the same as the original canvas's width
 		canvas.width=canvas.width;
-		//set the context colour to purple
+		//set the fill colour to purple
 		context.fillStyle = "purple";
+		//create the users rectangle using it's variable attributes
 		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+		//fill the rectangle with the fill coulour
 		context.fill();
-		context.stroke();
+		
 
 		for (var j=0; j<20; j++) {
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
 			context.fill();
-			context.stroke();
+			
 		}
 	
 		for (var j=0; j<5; j++) {
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
 			context.fill();
-			context.stroke();
+			
 		}	
 	}
 
@@ -129,9 +131,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	var height = 15;
 	//variable of player's square
 	var userSquare;
-	var bob=document.getElementById("myImage");
-	var pat=ctx.createPattern(bob,"no-repeat");
-	
+
 	// create a rectangle variables holder, (using function shape)
 	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
 	//that is the users square
@@ -139,7 +139,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
 	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 	//make the fill colour red
-	context.fillStyle = pat;
+	context.fillStyle = "red";
 	//use context.fill and context.stroke, to draw the rectangle
 	//stroke draws outline
 	context.stroke();
