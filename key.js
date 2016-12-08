@@ -129,6 +129,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	var height = 15;
 	//variable of player's square
 	var userSquare;
+	var bob=document.getElementById("myImage");
+	var pat=ctx.createPattern(bob,"no-repeat");
 	
 	// create a rectangle variables holder, (using function shape)
 	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
@@ -137,7 +139,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
 	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 	//make the fill colour red
-	context.fillStyle = "red";
+	context.fillStyle = pat;
 	//use context.fill and context.stroke, to draw the rectangle
 	//stroke draws outline
 	context.stroke();
