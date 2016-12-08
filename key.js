@@ -46,8 +46,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	function time(){
 		//add one to time variable
 		timeCounter++;
-		//
+		//call back on this function after 1 second (1000ms) - the loopers name is timeLoop
 		timeLoop = setTimeout(time,1000);
+		//set the text to the current time counted, for the time id
 		document.getElementById('timer').innerHTML = timeCounter;
 	}
 
