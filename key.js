@@ -41,12 +41,14 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//TIMER
 
 	//start time variable at zero
-	var timeo=0;
-
+	var timeCounter=0;
+	//function for timer, timing the game
 	function time(){
-		timeo++;
-		timer = setTimeout(time,1000);
-		document.getElementById('timer').innerHTML = timeo;
+		//add one to time variable
+		timeCounter++;
+		//
+		timeLoop = setTimeout(time,1000);
+		document.getElementById('timer').innerHTML = timeCounter;
 	}
 
 	//REDRAW CANVAS
@@ -158,7 +160,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		//get text text id from html file, set text to timer
 		document.getElementById('lblTime').innerHTML = "Timer";
 		
-		if(timeo==0){
+		if(timeCounter==0){
 			//call on time function to start
 			time();
 		}
@@ -252,7 +254,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 		if((bucur===true) && (mucur===true)){
 			alert("You Won!!\nYour Points is "+(150-timeo));
-			clearTimeout(timer);
+			clearTimeout(timeLoop);
 			myMos = [];
 			myBogs = [];
 			userSquare.w=0;
@@ -324,7 +326,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 				}
 				else{
 		
-               				clearTimeout(timer);
+               				clearTimeout(timeLoop);
 					alert("Game Over!\nRefresh to Play Again");
 					userSquare.w=0;
 					userSquare.h=0;
