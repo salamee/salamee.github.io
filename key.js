@@ -98,12 +98,22 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
     		this.w = w;
   		this.h = h;
 	}
+
+//x and y positon of player's square, start at zero and zero position
+	var xPos = 0;
+	var yPos = 0;
+	//the width and height of the players square
+	var width = 15;
+	var height = 15;
+	//variable of player's square
+	var userSquare;
+var myMos = [];
+	var myBogs = [];
 function play(){
 
 	//CREATING THE ENEMY SQUARES
 
-	var myMos = [];
-	var myBogs = [];
+	
 
 	var bob=0;
 	while(bob<20){
@@ -123,14 +133,7 @@ function play(){
 
 	//CREATING THE PLAYERS SQUARE
 
-	//x and y positon of player's square, start at zero and zero position
-	var xPos = 0;
-	var yPos = 0;
-	//the width and height of the players square
-	var width = 15;
-	var height = 15;
-	//variable of player's square
-	var userSquare;
+	
 
 	// create a rectangle variables holder, (using function shape)
 	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
