@@ -185,7 +185,7 @@ function play(){
 		document.getElementById('lblTime').innerHTML = "Timer";
 	
 		//call on time function to start
-		if(timeCounter==0){
+		if(timeCounter===0){
 			time();
 		}
 		
