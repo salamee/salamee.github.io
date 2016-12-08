@@ -8,5 +8,6 @@ h1{
 	color: rgb(139,0,139);
 }
 .play{
-	color: rgb(139,0,139);
+	width:100px;
+	height: 300px;
 }
