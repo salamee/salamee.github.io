@@ -60,6 +60,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		//redraw canvas anew
 		//make the new canvas's width the same as the original canvas's width
 		canvas.width=canvas.width;
+		//set the context colour to purple
 		context.fillStyle = "purple";
 		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 		context.fill();
@@ -67,14 +68,12 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 		for (var j=0; j<20; j++) {
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-			context.fillStyle = "purple";
 			context.fill();
 			context.stroke();
 		}
 	
 		for (var j=0; j<5; j++) {
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-			context.fillStyle = "purple";
 			context.fill();
 			context.stroke();
 		}	
@@ -137,7 +136,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	userSquare = new Shape (xPos, yPos, width, height);
 	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
 	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-	//make the fill colour the fill colur of userSquare's
+	//make the fill colour red
 	context.fillStyle = "red";
 	//use context.fill and context.stroke, to draw the rectangle
 	//stroke draws outline
