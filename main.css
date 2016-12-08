@@ -9,9 +9,9 @@ h1{
 }
 .play{
 	width:300px;
-	height: 75px;
-	color: purple;
-	background: yellow;
+	height: 50px;
+	color: cyan;
+	background: purple;
 	display:block;
    	margin:0 auto;
 }
@@ -19,5 +19,5 @@ h1{
 .canvas{
 	display:block;
    	margin:0 auto;
-	background: green;
+	background: yellow;
 }
