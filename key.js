@@ -91,7 +91,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 
 
-function play(){
 	
 	
 	
@@ -169,7 +168,7 @@ function play(){
 	context.fill();
 
 
-}
+
 
 
 	//INTERACTING WITH USER
