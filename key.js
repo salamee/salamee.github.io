@@ -16,7 +16,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//GETTING THINGS STARTED TO GET SET
 
 
-
+function play(){
 	//call on canvas and its context, created in the html file
 	//create a cavas variable and context variable
 	var Canvas = document.getElementById('canvas');
@@ -147,7 +147,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	context.fill();
 
 
-
+}
 
 	//INTERACTING WITH USER
 
