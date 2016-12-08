@@ -16,9 +16,9 @@ h1{
    	margin:0 auto;
 }
 
-.canvas{
+.canvasStyle{
 	display:block;
    	margin:0 auto;
 	background: yellow;
-	outline: 1px solid #000;
+	border: 1px solid #000;
 }
