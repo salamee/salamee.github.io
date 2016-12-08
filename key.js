@@ -16,27 +16,31 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//GETTING THINGS STARTED TO GET SET
 
 
-	//variables
-	var Canvas;
-	var context;
-	var timeCounter;
-	var myMos = [];
-	var myBogs = [];
-	var xPos;
-	var yPos;
-	var width;
-	var height;
-	//variable of player's square
-	var userSquare;
-
 	//call on canvas and its context, created in the html file
 	//create a cavas variable and context variable
-	Canvas = document.getElementById('canvas');
-	context = Canvas.getContext('2d');
+	var Canvas = document.getElementById('canvas');
+	var context = Canvas.getContext('2d');
 
+	//OUTPUT INSTRUCTIONS
+
+	//set font to 18pt georgia
+	context.font="18px Georgia";
+	//set font color to blue
+	context.fillStyle = "blue";
+	//fill the convas to text with instruction
+	//with centre positions
+	context.fillText("Use your arrow keys to move your box, the one on the left corner. Move this box to eat the smaller boxes.",225,50); 
+	context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",275,70); 
+	context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",270,90);
+	context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
+	context.fillText("Eat all the boxes as fast as you can to win.",450,130);
+	context.fillText("Remember!! The more time you take, the less points you have.",380,150);
+	context.fillText("PRESS ANY KEY TO START",500,200)
 
 	//TIMER
 
+	//start time variable at zero
+	var timeCounter=0;
 	//function for timer, timing the game
 	function time(){
 		//add one to time variable
@@ -46,7 +50,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		//set the text to the current time counted, for the time id
 		document.getElementById('timer').innerHTML = timeCounter;
 	}
-
 
 	//REDRAW CANVAS
 
@@ -77,6 +80,14 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}	
 	}
 
+
+
+
+	//CREATING THE OBJECTS
+
+
+
+
 	//CREATING SQUARES FUNCTION
 
 	//function that takes parameters of x and y position, width and height, and fill colour
@@ -88,44 +99,10 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
   		this.h = h;
 	}
 
-
-
-
-	
-	
-	
-	//OUTPUT INSTRUCTIONS
-
-	//set font to 18pt georgia
-	context.font="18px Georgia";
-	//set font color to blue
-	context.fillStyle = "blue";
-	//fill the convas to text with instruction
-	//with centre positions
-	context.fillText("Use your arrow keys to move your box, the one on the left corner. Move this box to eat the smaller boxes.",225,50); 
-	context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",275,70); 
-	context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",270,90);
-	context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
-	context.fillText("Eat all the boxes as fast as you can to win.",450,130);
-	context.fillText("Remember!! The more time you take, the less points you have.",380,150);
-	context.fillText("PRESS ANY KEY TO START",500,200)
-
-
-	
-	
-	//TIMER
-
-	//start time variable at zero
-	timeCounter=0;
-	
-	
-	
-	
-	
-	//CREATING THE OBJECTS
-
-
 	//CREATING THE ENEMY SQUARES
+
+	var myMos = [];
+	var myBogs = [];
 
 	var bob=0;
 	while(bob<20){
@@ -146,13 +123,14 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//CREATING THE PLAYERS SQUARE
 
 	//x and y positon of player's square, start at zero and zero position
-	xPos = 0;
-	yPos = 0;
+	var xPos = 0;
+	var yPos = 0;
 	//the width and height of the players square
-	width = 15;
-	height = 15;
+	var width = 15;
+	var height = 15;
 	//variable of player's square
-	
+	var userSquare;
+
 	// create a rectangle variables holder, (using function shape)
 	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
 	//that is the users square
@@ -170,8 +148,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 
 
-
 	//INTERACTING WITH USER
+
+
 
 
 	document.onkeydown = keyPressed;
@@ -181,12 +160,12 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		
 		//get text text id from html file, set text to timer
 		document.getElementById('lblTime').innerHTML = "Timer";
-	
-		//call on time function to start
-		if(timeCounter===0){
+		
+		if(timeCounter==0){
+			//call on time function to start
 			time();
 		}
-		
+
 		/*if the button pessed has the key code of 37 (which is the left arrow key) 
 		and the userSquare is not past the canvas left sideline 
 		(useSquare's x postion is greater than zero)*/
@@ -374,5 +353,3 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			return true;
 		}
 	}
-
-	
