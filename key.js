@@ -93,7 +93,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 function play(){
 	
-	redrawCanvas();
 	
 	
 	//OUTPUT INSTRUCTIONS
