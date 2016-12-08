@@ -34,22 +34,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	Canvas = document.getElementById('canvas');
 	context = Canvas.getContext('2d');
 
-	//OUTPUT INSTRUCTIONS
-
-	//set font to 18pt georgia
-	context.font="18px Georgia";
-	//set font color to blue
-	context.fillStyle = "blue";
-	//fill the convas to text with instruction
-	//with centre positions
-	context.fillText("Use your arrow keys to move your box, the one on the left corner. Move this box to eat the smaller boxes.",225,50); 
-	context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",275,70); 
-	context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",270,90);
-	context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
-	context.fillText("Eat all the boxes as fast as you can to win.",450,130);
-	context.fillText("Remember!! The more time you take, the less points you have.",380,150);
-	context.fillText("PRESS ANY KEY TO START",500,200)
-
 
 	//TIMER
 
@@ -111,16 +95,32 @@ function play(){
 	
 	redrawCanvas();
 	
-	//get text text id from html file, set text to timer
-	document.getElementById('lblTime').innerHTML = "Timer";
+	
+	//OUTPUT INSTRUCTIONS
+
+	//set font to 18pt georgia
+	context.font="18px Georgia";
+	//set font color to blue
+	context.fillStyle = "blue";
+	//fill the convas to text with instruction
+	//with centre positions
+	context.fillText("Use your arrow keys to move your box, the one on the left corner. Move this box to eat the smaller boxes.",225,50); 
+	context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",275,70); 
+	context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",270,90);
+	context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
+	context.fillText("Eat all the boxes as fast as you can to win.",450,130);
+	context.fillText("Remember!! The more time you take, the less points you have.",380,150);
+	context.fillText("PRESS ANY KEY TO START",500,200)
+
+
+	
 	
 	//TIMER
 
 	//start time variable at zero
 	timeCounter=0;
 	
-	//call on time function to start
-	time();
+	
 	
 	
 	
@@ -181,6 +181,13 @@ function play(){
 	//function, that takes care of the moving, no parameters, for it is an event
 	function keyPressed(e){
 		
+		//get text text id from html file, set text to timer
+		document.getElementById('lblTime').innerHTML = "Timer";
+	
+		//call on time function to start
+		if(timeCounter==0){
+			time();
+		}
 		
 		/*if the button pessed has the key code of 37 (which is the left arrow key) 
 		and the userSquare is not past the canvas left sideline 
