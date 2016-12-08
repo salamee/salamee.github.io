@@ -104,7 +104,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	var bob=0;
 	while(bob<20){
 
-		myMos.push(new Shape ((Math.floor(Math.random()*1138+50)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
+		myMos.push(new Shape ((Math.floor(Math.random()*1258+30)), (Math.floor(Math.random()*188+50)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
 		bob++;
 	}
 
@@ -113,7 +113,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	while(jojo<5){
 		size = (jojo*5)+ size;
-		myBogs.push(new Shape ((Math.floor(Math.random()*1044+50)), (Math.floor(Math.random()*92+50)), size, size));
+		myBogs.push(new Shape ((Math.floor(Math.random()*1144+50)), (Math.floor(Math.random()*92+50)), size, size));
 		jojo++;
 	}
 
@@ -204,7 +204,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		/*if the button pessed has the key code of 39 (which is the right arrow key) 
 		and the userSquare's right side length is not past the canvas right sideline 
 		(useSquare's x postion plus it's width is less than 1200)*/
-		if(((userSquare.x + userSquare.w)<1200) && (e.keyCode==39) ){
+		if(((userSquare.x + userSquare.w)<1300) && (e.keyCode==39) ){
 			//than make the user's squares x-position 5 pixels  to the right(add 5 from orignal x position)
 			userSquare.x+=5;
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
@@ -313,8 +313,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 			if (isCollide( myBogs[i], userSquare)){
 				if((userSquare.w >= myBogs[i].w) && (userSquare.h >= myBogs[i].h)){
-					userSquare.w+=10;
-					userSquare.h+=10;
+					var growth = (myBogs[i].w)/5
+					userSquare.w+=growth;
+					userSquare.h+=growth;
 					myBogs[i].x=-50;
 					myBogs[i].y=-50;
 					myBogs[i].w=0;
