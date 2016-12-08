@@ -20,5 +20,5 @@ h1{
 	display:block;
    	margin:0 auto;
 	background: yellow;
-	border: 1px solid #000;
+	outline: 1px solid #000;
 }
