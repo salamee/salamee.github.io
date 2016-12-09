@@ -51,6 +51,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		//set the text to the current time counted, for the time id
 		document.getElementById('timer').innerHTML = timeCounter;
 	}
+	//get text text id from html file, set text to timer
+	document.getElementById('lblTime').innerHTML = "Timer";
 
 	//REDRAW CANVAS
 
@@ -64,20 +66,25 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		context.fillStyle = "purple";
 		//create the users rectangle using it's variable attributes
 		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+		//stroke draws outline
+		context.stroke();
 		//fill the rectangle with the fill coulour
 		context.fill();
-		context.stroke();
 
 		for (var j=0; j<20; j++) {
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
-			context.fill();
-			context.stroke();	
+			//stroke draws outline
+			context.stroke();
+			//fill the rectangle with the fill coulour
+			context.fill();	
 		}
 	
 		for (var j=0; j<5; j++) {
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
-			context.fill();
+			//stroke draws outline
 			context.stroke();
+			//fill the rectangle with the fill coulour
+			context.fill();
 		}	
 	}
 
@@ -123,19 +130,14 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	//CREATING THE PLAYERS SQUARE
 
-	//x and y positon of player's square, start at zero and zero position
-	var xPos = 0;
-	var yPos = 0;
-	//the width and height of the players square
-	var width = 15;
-	var height = 15;
+	
 	//variable of player's square
 	var userSquare;
 
 	// create a rectangle variables holder, (using function shape)
-	//with the width, and height of the variables of width and height, and with x and y postions, at xPos and yPos variables, and fill colour.
+	//with the width, and height of the 15 by 15, and with x and y postions, at 0,0.
 	//that is the users square
-	userSquare = new Shape (xPos, yPos, width, height);
+	userSquare = new Shape (0, 0, 15, 15);
 	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
 	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 	//make the fill colour red
@@ -159,10 +161,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//function, that takes care of the moving, no parameters, for it is an event
 	function keyPressed(e){
 		
-		//get text text id from html file, set text to timer
-		document.getElementById('lblTime').innerHTML = "Timer";
-		
-		if(timeCounter==0){
+		//if timeCounter variable did not stat counting yet
+		if(timeCounter===0){
 			//call on time function to start
 			time();
 		}
@@ -176,6 +176,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			win();
 		}
 		/*if the button pessed has the key code of 40 (which is the down arrow key) 
 		and the userSquare's bottom line position
@@ -190,6 +191,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			win();
 		}
 
 		/*if the button pessed has the key code of 38 (which is the up arrow key) 
@@ -203,6 +205,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			win();
 		}
 
 		/*if the button pessed has the key code of 39 (which is the right arrow key) 
@@ -214,6 +217,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			win();
 		}
 		
 		redrawCanvas();	
@@ -231,9 +235,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		var mucur = false;
 		var bucur = false;
 
-		var arrayLength = myMos.length;
+		var arrayLiength = myMos.length;
 
-		for (var i = 0; i < arrayLength; i++) {
+		for (var i = 0; i < arrayLiength; i++) {
 			if( myMos[i].h===0){
 				mucur = true;
 			}
@@ -255,10 +259,14 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}
 
 		if((bucur===true) && (mucur===true)){
-			alert("You Won!!\nYour Points is "+(150-timeo));
+			alert("You Won!!\nYour Points is "+(150-timeCounter));
 			clearTimeout(timeLoop);
 			myMos = [];
 			myBogs = [];
+			userSquare.w=0;
+			userSquare.h=0;
+			userSquare.x=-500;
+			userSquare.y=-500;
 			
 		
 			redrawCanvas();	
@@ -276,7 +284,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	// function to check if players square touches the smaller squares, 
 	//and if so, will get bigger, and make smaller square that is touched disappear from screen
-	function collision(e){
+	function collision(){
 		var arrayLength = myMos.length;
 		for (var i = 0; i < arrayLength; i++) {
 
@@ -287,7 +295,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 				myMos[i].y=-50;
 				myMos[i].w=0;
 				myMos[i].h=0;
-				win();
+				
 			}
 		}	
 	}
@@ -300,13 +308,13 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//and if so, 
 	//checks if player is bigger or smaller than the box touched
 	//if player is bigger than other box then player will get bigger, and make smaller square that is touched disappear from screen
-	function collisionBogs(e){
+	function collisionBogs(){
 		var bogsLength = myBogs.length;
 
 		for (var i = 0; i < bogsLength; i++) {
 
 			if (isCollide( myBogs[i], userSquare)){
-				if((userSquare.w >= myBogs[i].w) && (userSquare.h >= myBogs[i].h)){
+				if((userSquare.w > myBogs[i].w) && (userSquare.h > myBogs[i].h)){
 					//var growth = (myBogs[i].w)/5
 					userSquare.w+=10;
 					userSquare.h+=10;
@@ -314,7 +322,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 					myBogs[i].y=-50;
 					myBogs[i].w=0;
 					myBogs[i].h=0;
-					win();
 				}
 				else{
 		
