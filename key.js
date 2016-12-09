@@ -259,17 +259,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			clearTimeout(timeLoop);
 			myMos = [];
 			myBogs = [];
-			userSquare.w=0;
-			userSquare.h=0;
-			userSquare.x=-500;
-			userSquare.y=-500;
-
-			userSquare.w=0;
-			userSquare.h=0;
-			userSquare.x=-500;
-			userSquare.y=-500;
-			myMos = [];
-			myBogs = [];
+			
 		
 			redrawCanvas();	
 		}
