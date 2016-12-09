@@ -66,18 +66,18 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
 		//fill the rectangle with the fill coulour
 		context.fill();
-		
+		context.stroke();
 
 		for (var j=0; j<20; j++) {
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
 			context.fill();
-			
+			context.stroke();	
 		}
 	
 		for (var j=0; j<5; j++) {
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
 			context.fill();
-			
+			context.stroke();
 		}	
 	}
 
@@ -307,9 +307,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 			if (isCollide( myBogs[i], userSquare)){
 				if((userSquare.w >= myBogs[i].w) && (userSquare.h >= myBogs[i].h)){
-					var growth = (myBogs[i].w)/5
-					userSquare.w+=growth;
-					userSquare.h+=growth;
+					//var growth = (myBogs[i].w)/5
+					userSquare.w+=10;
+					userSquare.h+=10;
 					myBogs[i].x=-50;
 					myBogs[i].y=-50;
 					myBogs[i].w=0;
