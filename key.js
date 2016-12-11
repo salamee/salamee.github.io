@@ -51,6 +51,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//when play button is pressed, instructions will be outputted, time will restart and characters created
 	function play(){
 		
+		//redraw canvas
+		redrawCanvas();
+		
 		//OUTPUT INSTRUCTIONS
 
 		//set font to 18pt georgia
@@ -285,6 +288,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			
 		
 			redrawCanvas();	
+			
+			//get text id from html file, set text to play again
+			document.getElementById('lblTime').innerHTML = "Timer";
 		}
 	}
 
@@ -341,7 +347,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 				else{
 		
                				clearTimeout(timeLoop);
-					alert("Game Over!\nRefresh to Play Again");
+					alert("Game Over!");
 					userSquare.w=0;
 					userSquare.h=0;
 					userSquare.x=-500;
