@@ -12,6 +12,12 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 */
 
 
+	//FIRST AND FOREMOST
+	var userName = prompt("Please enter your name", "Harry Potter");
+	if (userName != null) {
+    		alert("Hello " + userName + "! Press Play!! to Start Playing";)
+	}
+	
 
 	//GETTING THINGS STARTED TO GET SET
 
