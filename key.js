@@ -79,7 +79,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 		//start time variable at zero
 		timeCounter=0;
-		
+		//set the text to the current time counted, for the time id
+		document.getElementById('timer').innerHTML = timeCounter;
 		
 		//CREATING THE OBJECTS
 
