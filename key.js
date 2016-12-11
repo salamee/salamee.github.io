@@ -290,7 +290,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			redrawCanvas();	
 			
 			//get text id from html file, set text to play again
-			document.getElementById('lblTime').innerHTML = "Timer";
+			document.getElementById('toPlay').innerHTML = "Play Again";
 		}
 	}
 
@@ -355,7 +355,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 					myMos = [];
 					myBogs = [];
 		
-					redrawCanvas();			
+					redrawCanvas();	
+					//get text id from html file, set text to play again
+					document.getElementById('toPlay').innerHTML = "Play Again";
 				}
 			}	
 		}		
