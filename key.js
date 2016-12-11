@@ -51,8 +51,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//when play button is pressed, instructions will be outputted, time will restart and characters created
 	function play(){
 		
-		//redraw canvas
-		redrawCanvas();
+		
 		
 		//OUTPUT INSTRUCTIONS
 
@@ -290,7 +289,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			redrawCanvas();	
 			
 			//get text id from html file, set text to play again
-			//document.getElementById('toPlay').value = "Play Again";
+			document.getElementById('toPlay').value = "Play Again";
 		}
 	}
 
@@ -357,7 +356,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		
 					redrawCanvas();	
 					//get text id from html file, set text to play again
-					//document.getElementById('toPlay').value = "Play Again";
+					document.getElementById('toPlay').value = "Play Again";
 				}
 			}	
 		}		
