@@ -1,4 +1,3 @@
-Scores
+Name      Scores
 
-94
-53
+Tasnim    117
