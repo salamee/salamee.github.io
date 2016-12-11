@@ -71,6 +71,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
 		context.fillText("Eat all the boxes as fast as you can to win.",450,130);
 		context.fillText("Remember!! The more time you take, the less points you have.",380,150);
+		//set font to 22pt georgia bold
+		context.font="bold 22px Georgia";
 		context.fillText("PRESS AN ARROW KEY TO START",500,200)
 
 		//TIMER
