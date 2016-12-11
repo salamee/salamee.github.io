@@ -22,9 +22,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
 	//create a variable for the play btn
-	var btn = document.getElementById("toPlay"); 
+	var btnPlay = document.getElementById("toPlay"); 
 	//keep the btn enabled
-	btn.disabled = false;
+	btnPlay.disabled = false;
 	
 	//variable of player's square
 	var userSquare;
@@ -55,7 +55,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//when play button is pressed, instructions will be outputted, time will restart and characters created
 	function play(){
 		//disable play btn
-		btn.disabled = true;
+		btnPlay.disabled = true;
 		
 		//OUTPUT INSTRUCTIONS
 
@@ -367,6 +367,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 					myBogs = [];
 		
 					redrawCanvas();	
+					//make the btn to play enabled
+					btnPlay.disabled = false;
 				}
 			}	
 		}		
