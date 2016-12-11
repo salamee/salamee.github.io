@@ -290,7 +290,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}
 
 		if((bucur===true) && (mucur===true)){
-			alert("You Won!!\nYour Points is "+(150-timeCounter));
+			alert("You Won!!\nYour Points is "+(150-timeCounter)+"\nPress Play!! Button to Play Again");
 			clearTimeout(timeLoop);
 			myMos = [];
 			myBogs = [];
@@ -301,6 +301,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			
 		
 			redrawCanvas();	
+			//make the btn to play enabled
+			btnPlay.disabled = false;
 			
 		}
 	}
@@ -358,7 +360,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 				else{
 		
                				clearTimeout(timeLoop);
-					alert("Game Over!");
+					alert("Game Over!\nPress Play!! Button to Play Again");
 					userSquare.w=0;
 					userSquare.h=0;
 					userSquare.x=-500;
