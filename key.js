@@ -12,11 +12,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 */
 
 
-	//FIRST AND FOREMOST
-	var userName = prompt("Please enter your name", "Harry Potter");
-	if (userName != null) {
-    		alert("Hello " + userName + "! Press Play!! to Start Playing";)
-	}
+	
 	
 
 	//GETTING THINGS STARTED TO GET SET
@@ -31,6 +27,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	var btnPlay = document.getElementById("toPlay"); 
 	//keep the btn enabled
 	btnPlay.disabled = false;
+	//name of user
+	var userName;
 	
 	//variable of player's square
 	var userSquare;
@@ -60,6 +58,10 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	//when play button is pressed, instructions will be outputted, time will restart and characters created
 	function play(){
+		
+		//FIRST AND FOREMOST
+		userName = prompt("Please enter your name");
+		
 		//disable play btn
 		btnPlay.disabled = true;
 		
