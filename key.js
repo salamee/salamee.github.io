@@ -178,6 +178,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//function, that takes care of the moving, no parameters, for it is an event
 	function keyPressed(e){
 		
+				redrawCanvas();	
+
+		
 		//if timeCounter variable did not stat counting yet
 		if(timeCounter===0){
 			//call on time function to start
@@ -237,7 +240,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			win();
 		}
 		
-		redrawCanvas();	
 	}
 
 
@@ -353,8 +355,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 					myBogs = [];
 		
 					redrawCanvas();	
-					//get text id from html file, set text to play again
-					document.getElementById("toPlay").value = "Play Again";
 				}
 			}	
 		}		
