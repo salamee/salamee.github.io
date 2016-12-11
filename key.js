@@ -95,6 +95,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		while(jojo<5){
 			//make the new big enemy 
 			size = (jojo*5)+ size;
+			//push a new squares info into the big enemies arrays
 			myBogs.push(new Shape ((Math.floor(Math.random()*1154+40)), (Math.floor(Math.random()*162+30)), size, size));
 			jojo++;
 		}
@@ -134,8 +135,10 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		context.stroke();
 		//fill the rectangle with the fill coulour
 		context.fill();
-
-		for (var j=0; j<20; j++) {
+	
+		//loop for the amount of squares in the small enemies squares array
+		var mosLength = myMos.length;
+		for (var j=0; j<mosLength; j++) {
 			context.rect(myMos[j].x, myMos[j].y, myMos[j].w, myMos[j].h);
 			//stroke draws outline
 			context.stroke();
@@ -143,7 +146,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			context.fill();	
 		}
 	
-		for (var j=0; j<5; j++) {
+		//loop for the amount of squares in the big enemies squares array
+		var bogsLength = myBogs.length;
+		for (var j=0; j<bogsLength; j++) {
 			context.rect(myBogs[j].x, myBogs[j].y, myBogs[j].w, myBogs[j].h);
 			//stroke draws outline
 			context.stroke();
@@ -172,14 +177,11 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 
 
-
+	//when a key is pressed, the keypressed function will be called on
 	document.onkeydown = keyPressed;
 
 	//function, that takes care of the moving, no parameters, for it is an event
 	function keyPressed(e){
-		
-				redrawCanvas();	
-
 		
 		//if timeCounter variable did not stat counting yet
 		if(timeCounter===0){
@@ -196,6 +198,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			//check if user won
 			win();
 		}
 		/*if the button pessed has the key code of 40 (which is the down arrow key) 
@@ -211,6 +214,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			//check if user won
 			win();
 		}
 
@@ -225,6 +229,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			//check if user won
 			win();
 		}
 
@@ -237,8 +242,11 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//call on collision fuctions, to check if userSquare now collides with other squares, and acts accordingly
 			collision();
 			collisionBogs();
+			//check if user won
 			win();
 		}
+		//redraw canvas with new adjustments
+		redrawCanvas();	
 		
 	}
 
@@ -335,9 +343,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 			if (isCollide( myBogs[i], userSquare)){
 				if((userSquare.w > myBogs[i].w) && (userSquare.h > myBogs[i].h)){
-					//var growth = (myBogs[i].w)/5
-					userSquare.w+=10;
-					userSquare.h+=10;
+					var growth = (myBogs[i].w)/5
+					userSquare.w+=growth;
+					userSquare.h+=growth;
 					myBogs[i].x=-50;
 					myBogs[i].y=-50;
 					myBogs[i].w=0;
