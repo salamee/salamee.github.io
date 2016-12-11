@@ -21,6 +21,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//create a cavas variable and context variable
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
+	var btn = document.getElementById("toPlay"); 
+	btn.disabled = false;
 	
 	//variable of player's square
 	var userSquare;
