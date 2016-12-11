@@ -60,7 +60,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	function play(){
 		
 		//FIRST AND FOREMOST
-		userName = prompt("Please enter your name");
+		//userName = prompt("Please enter your name");
 		
 		//disable play btn
 		btnPlay.disabled = true;
