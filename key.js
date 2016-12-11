@@ -21,27 +21,19 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//create a cavas variable and context variable
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
-
-	//OUTPUT INSTRUCTIONS
-
-	//set font to 18pt georgia
-	context.font="18px Georgia";
-	//set font color to blue
-	context.fillStyle = "blue";
-	//fill the convas to text with instruction
-	//with centre positions
-	context.fillText("Use your arrow keys to move your box, the one on the left corner. Move this box to eat the smaller boxes.",225,50); 
-	context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",275,70); 
-	context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",270,90);
-	context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
-	context.fillText("Eat all the boxes as fast as you can to win.",450,130);
-	context.fillText("Remember!! The more time you take, the less points you have.",380,150);
-	context.fillText("PRESS ANY KEY TO START",500,200)
+	
+	//variable of player's square
+	var userSquare;
+	//*enemy squares
+	//small enemies
+	var myMos = [];
+	//big eneimies
+	var myBogs = [];
 
 	//TIMER
 
-	//start time variable at zero
-	var timeCounter=0;
+	//start time variable
+	var timeCounter;
 	//function for timer, timing the game
 	function time(){
 		//add one to time variable
@@ -53,6 +45,76 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	}
 	//get text text id from html file, set text to timer
 	document.getElementById('lblTime').innerHTML = "Timer";
+
+
+
+	//when play button is pressed, instructions will be outputted, time will restart and characters created
+	function play(){
+		
+		//OUTPUT INSTRUCTIONS
+
+		//set font to 18pt georgia
+		context.font="18px Georgia";
+		//set font color to blue
+		context.fillStyle = "blue";
+		//fill the convas to text with instruction
+		//with centre positions
+		context.fillText("Use your arrow keys to move your box, the one on the left corner. Move this box to eat the smaller boxes.",225,50); 
+		context.fillText("Remember you can only eat these small boxes, and eating them will make your box bigger.",275,70); 
+		context.fillText("But Beware of the boxes that are bigger than you, you cannot eat it, or else it'll be game over.",270,90);
+		context.fillText("But you can eat these bigger boxes once you are bigger than the big boxes.",350,110);
+		context.fillText("Eat all the boxes as fast as you can to win.",450,130);
+		context.fillText("Remember!! The more time you take, the less points you have.",380,150);
+		context.fillText("PRESS ANY KEY TO START",500,200)
+
+		//TIMER
+
+		//start time variable at zero
+		timeCounter=0;
+		
+		
+		//CREATING THE OBJECTS
+
+	
+		//CREATING THE ENEMY SQUARES
+
+		var bigMosCounter=0;
+		//loop 20 times
+		while(bigMosCounter<20){
+			//push a new square shape's info into the small enemies array
+			myMos.push(new Shape ((Math.floor(Math.random()*1258+30)), (Math.floor(Math.random()*273+15)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
+			//add one to counter
+			bigMosCounter++;
+		}
+
+		var jojo = 0;
+		var size = 55;
+		//loop 5 times
+		while(jojo<5){
+			//make the new big enemy 
+			size = (jojo*5)+ size;
+			myBogs.push(new Shape ((Math.floor(Math.random()*1154+40)), (Math.floor(Math.random()*162+30)), size, size));
+			jojo++;
+		}
+
+		//CREATING THE PLAYERS SQUARE
+
+		// create a rectangle variables holder, (using function shape)
+		//with the width, and height of the 15 by 15, and with x and y postions, at 0,0.
+		//that is the users square
+		userSquare = new Shape (0, 0, 15, 15);
+		//use the context.rect method to create a rectangle using the userSquare's Shape function variables
+		context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
+		//make the fill colour red
+		context.fillStyle = "red";
+		//use context.fill and context.stroke, to draw the rectangle
+		//stroke draws outline
+		context.stroke();
+		//fill in colour
+		context.fill();
+		
+	}	
+
 
 	//REDRAW CANVAS
 
@@ -88,14 +150,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}	
 	}
 
-
-
-
-	//CREATING THE OBJECTS
-
-
-
-
+	
 	//CREATING SQUARES FUNCTION
 
 	//function that takes parameters of x and y position, width and height, and fill colour
@@ -107,50 +162,10 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
   		this.h = h;
 	}
 
-	//CREATING THE ENEMY SQUARES
 
-	var myMos = [];
-	var myBogs = [];
 
-	var bob=0;
-	while(bob<20){
-
-		myMos.push(new Shape ((Math.floor(Math.random()*1258+30)), (Math.floor(Math.random()*273+15)), (Math.floor(Math.random()*2+10)), (Math.floor(Math.random()*2+10))));
-		bob++;
-	}
-
-	var jojo = 0;
-	var size = 55;
-
-	while(jojo<5){
-		size = (jojo*5)+ size;
-		myBogs.push(new Shape ((Math.floor(Math.random()*1154+40)), (Math.floor(Math.random()*162+30)), size, size));
-		jojo++;
-	}
-
-	//CREATING THE PLAYERS SQUARE
 
 	
-	//variable of player's square
-	var userSquare;
-
-	// create a rectangle variables holder, (using function shape)
-	//with the width, and height of the 15 by 15, and with x and y postions, at 0,0.
-	//that is the users square
-	userSquare = new Shape (0, 0, 15, 15);
-	//use the context.rect method to create a rectangle using the userSquare's Shape function variables
-	context.rect(userSquare.x, userSquare.y, userSquare.w, userSquare.h);
-	//make the fill colour red
-	context.fillStyle = "red";
-	//use context.fill and context.stroke, to draw the rectangle
-	//stroke draws outline
-	context.stroke();
-	//fill fills in colour
-	context.fill();
-
-
-
-
 	//INTERACTING WITH USER
 
 
