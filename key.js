@@ -21,7 +21,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//create a cavas variable and context variable
 	var Canvas = document.getElementById('canvas');
 	var context = Canvas.getContext('2d');
+	//create a variable for the play btn
 	var btn = document.getElementById("toPlay"); 
+	//keep the btn enabled
 	btn.disabled = false;
 	
 	//variable of player's square
@@ -52,8 +54,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	//when play button is pressed, instructions will be outputted, time will restart and characters created
 	function play(){
-		
-		
+		//disable play btn
+		btn.disabled = true;
 		
 		//OUTPUT INSTRUCTIONS
 
