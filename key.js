@@ -54,13 +54,15 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//get text text id from html file, set text to timer
 	document.getElementById('lblTime').innerHTML = "Timer";
 
+	//FIRST AND FOREMOST
+	userName = prompt("Please enter your name");
+
 
 
 	//when play button is pressed, instructions will be outputted, time will restart and characters created
 	function play(){
 		
-		//FIRST AND FOREMOST
-		//userName = prompt("Please enter your name");
+		
 		
 		//disable play btn
 		btnPlay.disabled = true;
