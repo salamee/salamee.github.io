@@ -384,6 +384,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 					redrawCanvas();	
 					//make the btn to play enabled
 					btnPlay.disabled = false;
+					addScores();
 				}
 			}	
 		}		
@@ -401,4 +402,13 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		}
 	}
 
-	
+	function addScores(){
+		var f='scores.txt',
+    		fs=require('fs');
+		
+		fs.appendFile(f,'Some more text to append.',function(err){
+  		if(err)
+    		console.error(err);
+  		console.log('Appended!');
+		});
+	}
