@@ -325,9 +325,13 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//output as an alert that the user has won, and that their points is 150 subtracted by the time
 			//inform them to play again by pressing the Play!! button
 			alert("You Won!!\nYour Points is "+(150-timeCounter)+"\nPress Play Button to Play Again");
+			//stop the loop for counting the time (stop the timer)
 			clearTimeout(timeLoop);
+			//clear small enemies array
 			myMos = [];
+			//clear the big enemies array
 			myBogs = [];
+			//the 
 			userSquare.w=0;
 			userSquare.h=0;
 			userSquare.x=-500;
