@@ -180,9 +180,17 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//function that takes parameters of x and y position, width and height, and fill colour
 	//use this function to create variables, with their information
 	function Shape(x, y, w, h) {
+		//the x pos number will equal to the x pos number put in as the actual parameter of the formal parameter of x
+		//this is in reference to the shapes variable name given
     		this.x = x;
+		//the y pos number will equal to the y pos number put in as the actual parameter of the formal parameter of y
+		//this is in reference to the shapes variable name given
     		this.y = y;
+		//the w will equal to the width number put in as the actual parameter of the formal parameter of w
+		//this is in reference to the shapes variable name given
     		this.w = w;
+		//the h will equal to the height number put in as the actual parameter of the formal parameter of h
+		//this is in reference to the shapes variable name given
   		this.h = h;
 	}
 
@@ -273,37 +281,50 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//PLAYER WINS
 
 
-
+	//function for if the user wins
 	function win(){
-	
+		//the two types of monsers checker, for if all of them has been killed
 		var mucur = false;
 		var bucur = false;
 
-		var arrayLiength = myMos.length;
-
-		for (var i = 0; i < arrayLiength; i++) {
+		//loop for the length of the array of the small enemies (how many small enemies there are)
+		for (var i = 0; i < myMos.length; i++) {
+			//if the enemy's height is equal to zero
 			if( myMos[i].h===0){
+				//then then so far all the small mosters checked are killed
 				mucur = true;
 			}
+			//if not
 			else{
+				//then an enemy has not been killed
 				mucur=false;
+				//break from loop
 				break;
 			}	
-		}	
-		var bogsLength = myBogs.length;
-		for (var i = 0; i < bogsLength; i++) {
-
-			if (myBogs[i].h===0){
-				bucur=true;
-			}
-			else{
-				bucur=false;
-				break;
+		}
+		//if all of the small monsters are killed
+		if(mucur==true){
+			//loop for the length of the array of the big enemies (how many big enemies there are)
+			for (var i = 0; i < myBogs.length; i++) {
+				//if the enemy's height is equal to zero
+				if (myBogs[i].h===0){
+					//then then so far all the big mosters checked are killed
+					bucur=true;
+				}
+				//if not
+				else{
+					//then an enemy has not been killed
+					bucur=false;
+					//break from loop
+					break;
+				}
 			}
 		}
-
+		//if all enemies has been killed
 		if((bucur===true) && (mucur===true)){
-			alert("You Won!!\nYour Points is "+(150-timeCounter)+"\nPress Play!! Button to Play Again");
+			//output as an alert that the user has won, and that their points is 150 subtracted by the time
+			//inform them to play again by pressing the Play!! button
+			alert("You Won!!\nYour Points is "+(150-timeCounter)+"\nPress Play Button to Play Again");
 			clearTimeout(timeLoop);
 			myMos = [];
 			myBogs = [];
