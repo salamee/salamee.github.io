@@ -324,20 +324,20 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		if((bucur===true) && (mucur===true)){
 			//output as an alert that the user has won, and that their points is 150 subtracted by the time
 			//inform them to play again by pressing the Play!! button
-			alert("You Won!!\nYour Points is "+(150-timeCounter)+"\nPress Play Button to Play Again");
+			alert("You Won!!\nYou Scored "+(150-timeCounter)+" Points\nPress Play Button to Play Again");
 			//stop the loop for counting the time (stop the timer)
 			clearTimeout(timeLoop);
 			//clear small enemies array
 			myMos = [];
 			//clear the big enemies array
 			myBogs = [];
-			//the 
+			//make the player's square size non-existent (0x0)
 			userSquare.w=0;
 			userSquare.h=0;
+			//make player's square at a position off the canvas, away from player's visibility (-500,-500)
 			userSquare.x=-500;
 			userSquare.y=-500;
-			
-		
+			//redaw the canvas with new adjustments
 			redrawCanvas();	
 			//make the btn to play enabled
 			btnPlay.disabled = false;
@@ -357,10 +357,11 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	// function to check if players square touches the smaller squares, 
 	//and if so, will get bigger, and make smaller square that is touched disappear from screen
 	function collision(){
-		var arrayLength = myMos.length;
-		for (var i = 0; i < arrayLength; i++) {
-
+		//loop for the length of the array of the small enemies (how many small enemies there are)
+		for (var i = 0; i < myMos.length; i++) {
+			//if a small enemy had made collision with the player's square
 			if(isCollide( myMos[i], userSquare)){
+				//
 				userSquare.w+=5;
 				userSquare.h+=5;
 				myMos[i].x=-50;
