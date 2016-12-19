@@ -324,7 +324,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		if((bucur===true) && (mucur===true)){
 			//output as an alert that the user has won, and that their points is 150 subtracted by the time
 			//inform them to play again by pressing the Play!! button
-			alert("You Won!!\nYou Scored "+(150-timeCounter)+" Points\nPress Play Button to Play Again");
+			alert("Congrats "+userName+" You Won!!\nYou Scored "+(150-timeCounter)+" Points\nPress Play Button to Play Again");
 			//stop the loop for counting the time (stop the timer)
 			clearTimeout(timeLoop);
 			//clear small enemies array
@@ -407,7 +407,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
                				clearTimeout(timeLoop);
 					//output an alert to the user, informing them that it is game over for them, 
 					//and that they should proceed to press the play btn to play the game again
-					alert("Game Over!\nPress Play!! Button to Play Again");
+					alert("Game Over!\nThat's kind of sad"+userName+"\nPress Play!! Button to Play Again");
 					//make the usersquares size non existent
 					userSquare.w=0;
 					userSquare.h=0;
@@ -444,8 +444,4 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//return true, for the two squares did collide
 			return true;
 		}
-	}
-
-	function addScores(){
-		
 	}
