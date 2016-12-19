@@ -355,17 +355,19 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//PLAYER HITS SMALL SQUARES
 
 	// function to check if players square touches the smaller squares, 
-	//and if so, will get bigger, and make smaller square that is touched disappear from screen
+	//and if so, user will get bigger, and make smaller square that is touched disappear from screen
 	function collision(){
 		//loop for the length of the array of the small enemies (how many small enemies there are)
 		for (var i = 0; i < myMos.length; i++) {
 			//if a small enemy had made collision with the player's square
 			if(isCollide( myMos[i], userSquare)){
-				//
+				//user square size increases by 5 by 5 pixels
 				userSquare.w+=5;
 				userSquare.h+=5;
+				//the enemy square is drawn off of the canvas, away from users eye, (-50, -50)
 				myMos[i].x=-50;
 				myMos[i].y=-50;
+				//the small enemy has nonexistent size
 				myMos[i].w=0;
 				myMos[i].h=0;
 				
@@ -382,23 +384,30 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	//checks if player is bigger or smaller than the box touched
 	//if player is bigger than other box then player will get bigger, and make smaller square that is touched disappear from screen
 	function collisionBogs(){
-		var bogsLength = myBogs.length;
-
-		for (var i = 0; i < bogsLength; i++) {
-
+		//loop for the length of the array of the big enemies (how many big enemies there are)
+		for (var i = 0; i < myBogs.length; i++) {
+			//if a big enemy has made contact with the user
 			if (isCollide( myBogs[i], userSquare)){
+				//and the user is bigger in height and width compared to the big enemy
 				if((userSquare.w > myBogs[i].w) && (userSquare.h > myBogs[i].h)){
-					var growth = (myBogs[i].w)/5
+					//the amnt of growth the user have is the width of the big monster killed divided by 5
+					var growth = (myBogs[i].w)/5;
+					//the user square's width and height grow by the growth calculated
 					userSquare.w+=growth;
 					userSquare.h+=growth;
+					//position the big enemy outside of users view (-50,-50)
 					myBogs[i].x=-50;
 					myBogs[i].y=-50;
+					//make the big enemys size non exisitent
 					myBogs[i].w=0;
 					myBogs[i].h=0;
 				}
+				//if the user is smaller than the big enemy it collided with
 				else{
-		
+					//then stop the timer, (stop the reinvokation of the time function)
                				clearTimeout(timeLoop);
+					//output an alert to the user, informing them that it is game over for them, 
+					//and that they should proceed to press the play btn to play the game again
 					alert("Game Over!\nPress Play!! Button to Play Again");
 					userSquare.w=0;
 					userSquare.h=0;
