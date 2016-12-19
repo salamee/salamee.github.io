@@ -341,7 +341,6 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			redrawCanvas();	
 			//make the btn to play enabled
 			btnPlay.disabled = false;
-			
 		}
 	}
 
@@ -409,25 +408,31 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 					//output an alert to the user, informing them that it is game over for them, 
 					//and that they should proceed to press the play btn to play the game again
 					alert("Game Over!\nPress Play!! Button to Play Again");
+					//make the usersquares size non existent
 					userSquare.w=0;
 					userSquare.h=0;
-					userSquare.x=-500;
-					userSquare.y=-500;
+					//position the user out of users view (-50, -50)
+					userSquare.x=-50;
+					userSquare.y=-50;
+					//clear the small enemies array (so no enemies exist now)
 					myMos = [];
+					//clear the big enemies array (so no enemies exist now)
 					myBogs = [];
-		
+					//redraw the canvas wiht updated info
 					redrawCanvas();	
 					//make the btn to play enabled
 					btnPlay.disabled = false;
-					addScores();
 				}
 			}	
 		}		
 	}
 
-	//CHECK IF ONE THING TOUCHES THE OTHER
+	//CHECK IF ONE THING MAKES CONTACT WITH THE OTHER
 
+	//a is one square, b is another square
 	function isCollide(a, b) {
+		//if the right side of b square, is less than or equal to the positon of the other squares left side
+		//or if the left side's pos of the b square is less than or equal to the postion of the other squares right side
      		if(  ( (b.y + b.h) <= (a.y) )   ||   ( b.y >= (a.y + a.h) )  ||	( (b.x + b.w) <= a.x ) ||  ( b.x >= (a.x + a.w) )   ){
 			return false;
 		}
