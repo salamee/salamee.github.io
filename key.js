@@ -431,13 +431,17 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 
 	//a is one square, b is another square
 	function isCollide(a, b) {
-		//if the right side of b square, is less than or equal to the positon of the other squares left side
-		//or if the left side's pos of the b square is less than or equal to the postion of the other squares right side
+		//if the bottom side of the b square is less than or equal (higher) to the top side of the other square
+		//or if the the top side of the b square is bigger than or equal (lower) to the bottom side of the other square
+		//or if the right side pos of b square, is less than or equal (leftwards) to the positon of the other squares left side
+		//or if the left side's pos of the b square is bigger than or equal (rightwards) to the postion of the other squares right side
      		if(  ( (b.y + b.h) <= (a.y) )   ||   ( b.y >= (a.y + a.h) )  ||	( (b.x + b.w) <= a.x ) ||  ( b.x >= (a.x + a.w) )   ){
+			//return false, for the the two squares did not collide
 			return false;
 		}
+		//otherwise, (pos of one square is in the pos of the other square)
 		else{
-
+			//return true, for the two squares did collide
 			return true;
 		}
 	}
