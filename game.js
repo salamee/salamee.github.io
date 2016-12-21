@@ -29,8 +29,10 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	btnPlay.disabled = false;
 	//name of user
 	var userName;
-	//past score of user whne played twice
-	var pastScore="";
+	//highest score played statement
+	var highScore="";
+	//past score of user whne played twice, also highscore number
+	var pastScore=0;
 	
 	//variable of player's square
 	var userSquare;
@@ -90,7 +92,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		//set font to 22pt georgia bold
 		context.font="bold 22px Georgia";
 		context.fillText("PRESS ANY KEY TO START",455,200);
-		context.fillText(pastScore,455,250);
+		context.fillText(highScore,455,250);
 		
 
 		//TIMER
@@ -333,8 +335,13 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 			//output as an alert that the user has won, and that their points is 150 subtracted by the time
 			//inform them to play again by pressing the Play!! button
 			alert("Congrats "+userName+"\nYou Won!!\nYou Scored "+(150-timeCounter)+" Points\nPress Play Button to Play Again");
-			//make the past score the score they got know for the next game they play
-			pastScore = "Past Score of "+userName+": "+(150-timeCounter);
+			//make the past score the score that is higher, this score or past or zero -_-
+			if(pastScore<(150-timeCounter)){
+				//if pastscore low, new past score is score
+				pastScore = 150-timeCounter;
+			}
+			//geneartae highscore statemt, using past scres
+			highScore = "High Score of "+userName+": "+pastScore;
 			//stop the loop for counting the time (stop the timer)
 			clearTimeout(timeLoop);
 			//clear small enemies array
@@ -418,6 +425,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 					//output an alert to the user, informing them that it is game over for them, 
 					//and that they should proceed to press the play btn to play the game again
 					alert("Game Over!\nThat's kind of sad "+userName+"\nPress Play!! Button to Play Again");
+					//genearte highscore stement, past high score, or zero
+					highScore = "High Score of "+userName+": "+pastScore;
 					//make the usersquares size non existent
 					userSquare.w=0;
 					userSquare.h=0;
