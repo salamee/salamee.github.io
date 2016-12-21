@@ -29,6 +29,8 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 	btnPlay.disabled = false;
 	//name of user
 	var userName;
+	//past score of user whne played twice
+	var pastScore="";
 	
 	//variable of player's square
 	var userSquare;
@@ -87,7 +89,9 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
 		context.fillText("Remember!! The more time you take, the less points you have.",380,150);
 		//set font to 22pt georgia bold
 		context.font="bold 22px Georgia";
-		context.fillText("PRESS ANY KEY TO START",455,200)
+		context.fillText("PRESS ANY KEY TO START",455,200);
+		context.fillText(pastScore,455,250);
+		
 
 		//TIMER
 
