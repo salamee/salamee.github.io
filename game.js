@@ -424,7 +424,7 @@ The ponts are clculated by subtracting the time take to play, and subtacting tha
                				clearTimeout(timeLoop);
 					//output an alert to the user, informing them that it is game over for them, 
 					//and that they should proceed to press the play btn to play the game again
-					alert("Game Over!\nThat's kind of sad "+userName+"\nPress Play!! Button to Play Again");
+					alert("Game Over!\nThat's kind of sad "+userName+".\nPress Play!! Button to Play Again");
 					//genearte highscore stement, past high score, or zero
 					highScore = "High Score of "+userName+": "+pastScore;
 					//make the usersquares size non existent
